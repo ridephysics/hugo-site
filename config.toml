@@ -1,4 +1,13 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
 theme = "ananke"
+
+[languages]
+  [languages.en]
+    baseURL = "https://ridephysics.com"
+    languageName = "English"
+    title = "In English"
+    weight = 2
+  [languages.de]
+    baseURL = "https://kirmesphysik.de"
+    languageName = "Deutsch"
+    title = "In Deutsch"
+    weight = 1
