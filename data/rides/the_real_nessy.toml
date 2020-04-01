@@ -1,0 +1,25 @@
+video_id = "TpAcffRXM-0"
+image = "/images/the-real-nessy.jpg"
+data_file = "the-real-nessy.bin"
+data_file_rev = "6"
+data_format = "pendulum"
+facts = [
+    ["name", "The Real Nessy"],
+    ["manufacturer", "Kalbfleisch"],
+    ["owner", "Hans-Peter Markmann"],
+]
+recinfo = [
+    ["date", "2019-08-11", "date"],
+    ["location", "Herne Cranger Kirmes"],
+    ["seat", "seat", "sitevar"],
+    ["camera", "YI 4K+"],
+    ["sensor", "IMULogger v1.0"],
+    ["sensoreval_rev", "00000000"],
+]
+results = [
+    ["radius", "14.5", "meters"],
+    ["max_speed", "49.2", "kmh"],
+    ["max_speed_ang", "53.96", "deg_s"],
+    ["max_force", "2.3 G"],
+    ["max_angle", "84.0", "deg"]
+]

@@ -1,0 +1,145 @@
+{{ define "header" }}
+  {{ partial "empty.html" . }}
+{{ end }}
+
+{{ define "main" }}
+  {{ $config_name := $.Params.config }}
+  {{ $config := index .Site.Data.rides $config_name }}
+  
+  {{ $data_file := index $config "data_file" }}
+  {{ $section := .Site.GetPage "section" .Section }}
+  <article class="mw9 center">
+    <div class="cf">
+      <div class="fl w-100 vh-50 w-50-ns vh-100-ns overflow-hidden">
+        <div id="player"></div>
+      </div>
+      <div class="fl w-100 vh-50 w-50-ns vh-100-ns overflow-x-hidden overflow-y-scroll">
+        <div class="flex items-center justify-between fl w-100 ph3 pv3" style="background-color:#444444">
+          <a class="material-icons" href="{{ relref . "/rides" }}" style="color:#ffffff; text-decoration:none">arrow_back</a>
+
+          <ul class="pl3 mt0 mb0">
+            {{ range .Translations }}
+            <li class="list f5 f4-ns fw4 dib">
+                <a class="hover-white no-underline white-90" href="{{ .Permalink }}">{{ .Lang }}</a>
+            </li>
+            {{ end}}
+          </ul>
+        </div>
+
+        <div class="fl w-100 mdc-typography--overline pl1">{{ i18n "facts" }}</div>
+        <div class="fl w-100 pl3 pr2">
+          {{ range (index $config "facts") }}
+            <b>{{ printf "fact_%s" (index . 0) | i18n }}: </b> {{ index . 1 }}</br>
+          {{ end }}
+        </div>
+
+        <div class="fl w-100 mdc-typography--overline pl1 pt3">{{ i18n "recinfo" }}</div>
+        <div class="fl w-100 pl3 pr2">
+          {{ range (index $config "recinfo") }}
+            <b>{{ printf "recinfo_%s" (index . 0) | i18n }}: </b>
+
+            {{ if isset . 2 }}
+              {{ if eq (index . 2) "date" }}
+                {{ index . 1 | dateFormat "2006-01-02" }}
+              {{ else if eq (index . 2) "sitevar" }}
+                {{ index $.Params (index . 1) }}
+              {{ end }}
+            {{ else }}
+              {{ index . 1 }}
+            {{ end }}
+            </br>
+          {{ end }}
+        </div>
+
+        <div class="fl w-100 mdc-typography--overline pl1 pt3">{{ i18n "results" }}</div>
+        <div class="fl w-100 pl3 pr2">
+          {{ range (index $config "results") }}
+            <b>{{ printf "result_%s" (index . 0) | i18n }}: </b>
+
+            {{ if isset . 2 }}
+              {{ if eq (index . 2) "meters" }}
+                {{ index . 1 }} m
+                {{ if eq $.Site.Language.Lang "en" }}
+                  / {{ printf "%.1f" (mul (float (index . 1)) 3.281) }} ft
+                {{ end }}
+              {{ else if eq (index . 2) "kmh" }}
+                {{ index . 1 }} km/h
+                {{ if eq $.Site.Language.Lang "en" }}
+                  / {{ printf "%.1f" (div (float (index . 1)) 1.609) }} mph
+                {{ end }}
+              {{ else }}
+                {{ index . 1 }} {{ printf "unit_%s" (index . 2) | i18n }}
+              {{ end }}
+            {{ else }}
+              {{ index . 1 }}
+            {{ end }}
+            </br>
+          {{ end }}
+        </div>
+
+        {{- .Content -}}
+
+        <div id="charts_header" class="flex items-center justify-between fl w-100 mt3 pt2 pb2 pointer mdc-typography--subtitle1" style="background-color:#00000011">
+          {{ $path := printf "/static/data/%s" $data_file}}
+          {{ $stat := os.Stat $path }}
+          <span id="charts_expand_icon" class="material-icons select-n pl2 pr2">expand_more</span>
+          {{ i18n "graphs" }} ({{ div $stat.Size 1024}} KB)
+          <div id="charts_progress" class="lds-ring select-n mr3 vis-h"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div id="charts_container" class="dn">
+          <div id="charts"></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <script src="https://cdn.jsdelivr.net/npm/@petamoriken/float16@1.1.1/browser/float16.js"></script>
+  <script src="https://cdn.plot.ly/plotly-1.52.3.min.js"></script>
+  {{ $script := resources.Get "js/page_rides.js" | resources.Fingerprint }}
+  <script src="{{ $script.Permalink }}"></script>
+  <script type="text/javascript">
+    (function() {
+      var charts_header = document.getElementById("charts_header");
+      var charts_progress = document.getElementById("charts_progress");
+      var charts_expand_icon = document.getElementById("charts_expand_icon");
+      var load_triggered = false;
+
+      PageRides.init({
+        video_id: "{{ $.Params.video_id }}",
+        data_file: "{{ printf "%s?%s" $data_file (index $config "data_file_rev") }}",
+        data_format: "{{ index $config "data_format" }}",
+        i18n_strings: {
+          "angular_position": "{{ i18n "angular_position" }}",
+          "angular_velocity": "{{ i18n "angular_velocity" }}",
+          "velocity": "{{ i18n "velocity" }}",
+          "acceleration": "{{ i18n "acceleration" }}",
+        },
+        container: document.getElementById('charts_container'),
+        charts: document.getElementById("charts"),
+        on_loaded: function() {
+          charts_progress.classList.add("vis-h");
+        }
+      });
+
+      charts_header.onclick = function() {
+        if (charts_container.classList.contains("dn")) {
+          charts_container.classList.remove("dn");
+          charts_expand_icon.innerText = "expand_less";
+          if (load_triggered === false) {
+            load_triggered = true;
+            charts_progress.classList.remove("vis-h");
+            setTimeout(function(){ PageRides.load_data(); }, 100);
+          }
+        }
+        else {
+          charts_expand_icon.innerText = "expand_more";
+          charts_container.classList.add("dn");
+        }
+      };
+    })();
+  </script>
+{{ end }}
+
+{{ define "footer" }}
+  {{ partialCached "empty.html" . }}
+{{ end }}

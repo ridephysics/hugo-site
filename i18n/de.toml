@@ -1,0 +1,71 @@
+[facts]
+other = "Daten"
+
+[fact_name]
+other = "Name"
+
+[fact_manufacturer]
+other = "Hersteller"
+
+[fact_owner]
+other = "Besitzer"
+
+[unit_deg]
+other = "Grad"
+
+[unit_deg_s]
+other = "Grad/s"
+
+[recinfo]
+other = "Aufnahme Infos"
+
+[recinfo_location]
+other = "Ort"
+
+[recinfo_seat]
+other = "Sitzposition"
+
+[recinfo_camera]
+other = "Kamera"
+
+[recinfo_sensor]
+other = "Sensor"
+
+[recinfo_date]
+other = "Datum"
+
+[recinfo_sensoreval_rev]
+other = "Sensoreval-Version"
+
+[results]
+other = "Messergebnisse"
+
+[result_radius]
+other = "Radius"
+
+[result_max_speed]
+other = "Max. Geschwindigkeit"
+
+[result_max_speed_ang]
+other = "Max. Dreh-Geschwindigkeit"
+
+[result_max_force]
+other = "Max. Kraft"
+
+[result_max_angle]
+other = "Max. Winkel"
+
+[angular_position]
+other = "Winkel (Grad)"
+
+[angular_velocity]
+other = "Dreh-Geschwindigkeit (Grad / s)"
+
+[velocity]
+other = "Geschwindigkeit (m/s)"
+
+[acceleration]
+other = "Beschleunigung (g-Kraft)"
+
+[graphs]
+other = "Grafen"

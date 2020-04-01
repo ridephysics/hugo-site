@@ -1,5 +1,16 @@
 theme = "ananke"
+Paginate = 10
 staticDir = ["static"]
+
+[[languages.en.menu.main]]
+identifier = "rides"
+name = "Rides"
+url = "/rides"
+
+[[languages.de.menu.main]]
+identifier = "rides"
+name = "Fahrgeschäfte"
+url = "/rides"
 
 [languages]
   [languages.en]
@@ -21,4 +32,14 @@ staticDir = ["static"]
     youtube = "https://www.youtube.com/channel/UCD9FH6RjCzhshDW82N1zziQ"
 
 [params]
+main_classes = "min-vh-50"
+body_classes = "mdc-typography"
+mainSections = ["rides"]
+custom_css = [
+    "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css",
+    "https://fonts.googleapis.com/icon?family=Material+Icons",
+    "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
+    "assets/css/global.css"
+]
 github = "https://github.com/ridephysics"
+recent_posts_number = 3

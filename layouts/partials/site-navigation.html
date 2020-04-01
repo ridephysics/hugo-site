@@ -1,0 +1,22 @@
+<nav class="pv1 ph3 ph4-ns bg-black" role="navigation">
+  <div class="flex justify-between items-center center">
+    <a href="{{ .Site.BaseURL }}" class="f3 fw2 hover-white no-underline white-90 dib pr2">
+      {{ .Site.Title }}
+    </a>
+    <div class="">
+      {{ if .Site.Menus.main }}
+        <ul class="fl ph0" style="border-right: 1px solid #ffffff;">
+          {{ range .Site.Menus.main }}
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="{{ .URL }}" title="{{ .Name }} page">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+
+      {{ partial "i18nlist.html" . }}
+    </div>
+  </div>
+</nav>

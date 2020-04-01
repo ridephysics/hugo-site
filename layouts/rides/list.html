@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <div class="w-100 w-70-ns center">
+    <article class="nested-copy-line-height nested-img">
+      <section class="w-100 pb2">
+      {{ range .Paginator.Pages }}
+        {{ partial "ride-listitem.html" . }}
+      {{ end }}
+      </section>
+
+      <div class="tc">
+      {{- template "_internal/pagination.html" . -}}
+      </div>
+    </article>
+  </div>
+{{ end }}

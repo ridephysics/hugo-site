@@ -1,0 +1,12 @@
+<a href="{{ .Permalink }}" class="dib w-100 c pt2 bg-white">
+{{ $config_name := .Params.config }}
+{{ $config := index .Site.Data.rides $config_name }}
+{{ $image := index $config "image" }}
+{{ $image := (trim $image "/") | absURL }}
+<div class="fl w-40 vh-25 cover bg-top" style="background-image: url({{ $image }});"></div>
+<div class="fl w-60 pl2 vh-25 dt">
+    <h1 class="dtc v-mid f3 near-black">
+    {{ .Title }}
+    </h1>
+</div>
+</a>

@@ -1,0 +1,71 @@
+[facts]
+other = "Facts"
+
+[fact_name]
+other = "Name"
+
+[fact_manufacturer]
+other = "Manufacturer"
+
+[fact_owner]
+other = "Owner"
+
+[unit_deg]
+other = "deg"
+
+[unit_deg_s]
+other = "deg/s"
+
+[recinfo]
+other = "Recording Info"
+
+[recinfo_location]
+other = "Location"
+
+[recinfo_seat]
+other = "Seat"
+
+[recinfo_camera]
+other = "Camera"
+
+[recinfo_sensor]
+other = "Sensor"
+
+[recinfo_date]
+other = "Date"
+
+[recinfo_sensoreval_rev]
+other = "Sensoreval-revision"
+
+[results]
+other = "Results"
+
+[result_radius]
+other = "Radius"
+
+[result_max_speed]
+other = "Max. Speed"
+
+[result_max_speed_ang]
+other = "Max. Ang. Speed"
+
+[result_max_force]
+other = "Max. Force"
+
+[result_max_angle]
+other = "Max. Angle"
+
+[angular_position]
+other = "Angular Position (deg)"
+
+[angular_velocity]
+other = "Angular Velocity (deg/s)"
+
+[velocity]
+other = "Velocity (m/s)"
+
+[acceleration]
+other = "Acceleration (g-Force)"
+
+[graphs]
+other = "Graphs"
