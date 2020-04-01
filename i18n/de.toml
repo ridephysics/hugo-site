@@ -59,7 +59,7 @@ other = "Max. Winkel"
 other = "Winkel (Grad)"
 
 [angular_velocity]
-other = "Dreh-Geschwindigkeit (Grad / s)"
+other = "Dreh-Geschwindigkeit (Grad/s)"
 
 [velocity]
 other = "Geschwindigkeit (m/s)"
