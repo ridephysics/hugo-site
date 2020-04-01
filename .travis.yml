@@ -1,0 +1,14 @@
+install:
+  - curl -LO https://github.com/gohugoio/hugo/releases/download/v0.68.3/hugo_0.68.3_Linux-64bit.deb
+  - sudo dpkg -i hugo_0.68.3_Linux-64bit.deb
+
+script:
+  - hugo
+
+deploy:
+  provider: pages:git
+  edge: true
+  repo: ridephysics/ridephysics.github.io
+  target_branch: master
+  keep_history: false
+  local_dir: public/en
