@@ -6,9 +6,15 @@ script:
   - hugo
 
 deploy:
-  provider: pages:git
-  edge: true
-  repo: ridephysics/ridephysics.github.io
-  target_branch: master
-  keep_history: false
-  local_dir: public/en
+  - provider: pages:git
+    edge: true
+    repo: ridephysics/ridephysics.github.io
+    target_branch: master
+    keep_history: false
+    local_dir: public/en
+  - provider: pages:git
+    edge: true
+    repo: ridephysics/kirmesphysik.de
+    target_branch: master
+    keep_history: false
+    local_dir: public/de
