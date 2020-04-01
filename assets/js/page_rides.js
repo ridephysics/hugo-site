@@ -158,10 +158,10 @@ var PageRides = (function() {
           throw "trailing garbage";
         }
 
+        add_chart(i18n("acceleration"), data_at);
+        add_chart(i18n("velocity"), data_vt);
         add_chart(i18n("angular_position"), data_pa);
         add_chart(i18n("angular_velocity"), data_va);
-        add_chart(i18n("velocity"), data_vt);
-        add_chart(i18n("acceleration"), data_at);
       }
     };
     oReq.send(null);
