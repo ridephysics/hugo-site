@@ -16,3 +16,6 @@ staticDir = ["static"]
     title = "KirmesPhysik"
     weight = 1
     googleAnalytics = "UA-162502035-2"
+
+[params]
+github = "https://github.com/ridephysics"
