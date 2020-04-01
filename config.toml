@@ -9,6 +9,8 @@ staticDir = ["static"]
     title = "RidePhysics"
     weight = 2
     googleAnalytics = "UA-162502035-1"
+    youtube = "https://www.youtube.com/channel/UCFKTmIilhqp_Ypack64r5Zg"
+
   [languages.de]
     baseURL = "https://kirmesphysik.de"
     languageName = "Deutsch"
@@ -16,6 +18,7 @@ staticDir = ["static"]
     title = "KirmesPhysik"
     weight = 1
     googleAnalytics = "UA-162502035-2"
+    youtube = "https://www.youtube.com/channel/UCD9FH6RjCzhshDW82N1zziQ"
 
 [params]
 github = "https://github.com/ridephysics"
