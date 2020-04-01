@@ -1,13 +1,16 @@
 theme = "ananke"
+staticDir = ["static"]
 
 [languages]
   [languages.en]
     baseURL = "https://ridephysics.com"
     languageName = "English"
     title = "In English"
+    staticDir2 = "static_en"
     weight = 2
   [languages.de]
     baseURL = "https://kirmesphysik.de"
     languageName = "Deutsch"
     title = "In Deutsch"
+    staticDir2 = "static_de"
     weight = 1
