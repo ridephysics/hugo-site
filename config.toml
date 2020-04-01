@@ -8,9 +8,11 @@ staticDir = ["static"]
     staticDir2 = "static_en"
     title = "RidePhysics"
     weight = 2
+    googleAnalytics = "UA-162502035-1"
   [languages.de]
     baseURL = "https://kirmesphysik.de"
     languageName = "Deutsch"
     staticDir2 = "static_de"
     title = "KirmesPhysik"
     weight = 1
+    googleAnalytics = "UA-162502035-2"
