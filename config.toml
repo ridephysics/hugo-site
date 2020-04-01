@@ -5,12 +5,12 @@ staticDir = ["static"]
   [languages.en]
     baseURL = "https://ridephysics.com"
     languageName = "English"
-    title = "In English"
     staticDir2 = "static_en"
+    title = "RidePhysics"
     weight = 2
   [languages.de]
     baseURL = "https://kirmesphysik.de"
     languageName = "Deutsch"
-    title = "In Deutsch"
     staticDir2 = "static_de"
+    title = "KirmesPhysik"
     weight = 1
