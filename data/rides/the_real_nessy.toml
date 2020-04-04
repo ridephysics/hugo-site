@@ -1,7 +1,7 @@
 video_id = "TpAcffRXM-0"
 image = "/images/the-real-nessy.jpg"
 data_file = "the-real-nessy.bin"
-data_file_rev = "6"
+data_file_rev = "7"
 data_format = "pendulum"
 facts = [
     ["name", "The Real Nessy"],
@@ -14,12 +14,14 @@ recinfo = [
     ["seat", "seat", "sitevar"],
     ["camera", "YI 4K+"],
     ["sensor", "IMULogger v1.0"],
-    ["sensoreval_rev", "00000000"],
+    ["sensoreval_rev", "5128b3b"],
+    ["data_rev", "80f5fe9"],
+    ["blenderscenes_rev", "c0f1863"],
 ]
 results = [
     ["radius", "14.5", "meters"],
-    ["max_speed", "49.2", "kmh"],
-    ["max_speed_ang", "53.96", "deg_s"],
+    ["max_speed", "50", "kmh"],
+    ["max_speed_ang", "54", "deg_s"],
     ["max_force", "2.3 G"],
-    ["max_angle", "84.0", "deg"]
+    ["max_angle", "84", "deg"]
 ]

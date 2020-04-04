@@ -35,7 +35,13 @@ other = "Sensor"
 other = "Datum"
 
 [recinfo_sensoreval_rev]
-other = "Sensoreval-Version"
+other = "sensoreval-Version"
+
+[recinfo_data_rev]
+other = "data-Version"
+
+[recinfo_blenderscenes_rev]
+other = "blender-scenes-Version"
 
 [results]
 other = "Messergebnisse"
