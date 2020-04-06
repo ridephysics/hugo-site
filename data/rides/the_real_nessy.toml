@@ -14,8 +14,8 @@ recinfo = [
     ["seat", "seat", "sitevar"],
     ["camera", "YI 4K+"],
     ["sensor", "IMULogger v1.0"],
-    ["sensoreval_rev", "5128b3b"],
-    ["data_rev", "80f5fe9"],
+    ["sensoreval_rev", "1ac00d4"],
+    ["data_rev", "4e7eb8d"],
     ["blenderscenes_rev", "c0f1863"],
 ]
 results = [
