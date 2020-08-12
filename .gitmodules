@@ -1,3 +1,6 @@
 [submodule "themes/ananke"]
 	path = themes/ananke
 	url = https://github.com/ridephysics/gohugo-theme-ananke.git
+[submodule "ext/sensoreval"]
+	path = ext/sensoreval
+	url = https://github.com/ridephysics/sensoreval.git
