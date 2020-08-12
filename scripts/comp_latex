@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -euo pipefail
+
+TOPDIR=$(git rev-parse --show-toplevel)
+OUTDIR="$TOPDIR/static/latex"
+
+# cleanup
+if [ -d "$OUTDIR" ];then
+    rm -r "$OUTDIR"
+fi
+mkdir "$OUTDIR"
+
+# compile
+find "$TOPDIR/ext/sensoreval/docs" -type f -name "*.tex" -print0 | xargs -0 -I{} \
+    pdflatex -halt-on-error -output-directory "$TOPDIR/static/latex" "{}"
+
+# remove latex metadata
+find "$OUTDIR" -type f -not -name "*.pdf" -print0 | xargs -0 -I{} rm "{}"

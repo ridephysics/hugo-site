@@ -4,8 +4,10 @@ env:
 install:
   - curl -LO https://github.com/gohugoio/hugo/releases/download/v0.68.3/hugo_extended_0.68.3_Linux-64bit.deb
   - sudo dpkg -i hugo_extended_0.68.3_Linux-64bit.deb
+  - sudo apt-get install texlive texlive-pictures
 
 script:
+  - ./scripts/comp_latex
   - hugo
 
 deploy:
