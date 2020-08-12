@@ -11,9 +11,20 @@ if [ -d "$OUTDIR" ];then
 fi
 mkdir "$OUTDIR"
 
+runtwice() {
+    "${@:1}"
+    "${@:1}"
+}
+
 # compile
-find "$TOPDIR/ext/sensoreval/docs" -type f -name "*.tex" -print0 | xargs -0 -I{} \
-    pdflatex -halt-on-error -output-directory "$TOPDIR/static/latex" "{}"
+pushd "$TOPDIR/ext/sensoreval/docs"
+for f in *.tex; do
+    # XXX: run it twice to properly generate references.
+    #      this is probably the wrong way but I don't understand latex good
+    #      enough to find a different solution right now.
+    runtwice pdflatex -halt-on-error -output-directory "$TOPDIR/static/latex" "$f"
+done
+popd
 
 # remove latex metadata
 find "$OUTDIR" -type f -not -name "*.pdf" -print0 | xargs -0 -I{} rm "{}"
